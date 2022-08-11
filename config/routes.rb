@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-
-  
- 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root 'projects#index' #raiz da rota
+  get '/projects', to: 'projects#index'
+#controller_name projects#action_index
 end

@@ -1,0 +1,9 @@
+<h1>Projetos</h1>
+
+<ul>
+<% @projects.each do |project| %>
+    <li><%= project.titulo %></li>
+    <li><%= project.descricao %></li>
+    <li><%= project.duracao %></li>    
+    <% end %>
+</ul>
