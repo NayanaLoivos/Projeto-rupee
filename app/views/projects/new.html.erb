@@ -1,0 +1,32 @@
+<h1>Novo Projeto</h1>
+
+<%= form_with model: @project do |form| %>
+    <div>
+        <%= form.label :titulo %>
+        <%= form.text_field :titulo %>    
+        
+        <% @project.errors.full_messages_for(:titulo).each do |message| %>
+            <div><%= message %></div>
+        <% end %>        
+    </div>
+    <div>
+        <%= form.label :descricao %> 
+        <%= form.text_area :descricao %>      
+
+        <% @project.errors.full_messages_for(:descricao).each do |message| %>
+            <div><%= message %></div>
+        <% end %>        
+    </div>        
+    <div>
+        <%= form.label :duracao %>
+        <%= form.number_field :duracao %>        
+
+        <% @project.errors.full_messages_for(:duracao).each do |message| %>
+            <div><%= message %></div>
+        <% end %>        
+    </div>
+    <div>        
+        <%= form.submit %>   
+    </div>      
+    
+<% end %>
