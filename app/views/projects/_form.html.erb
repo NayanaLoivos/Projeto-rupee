@@ -1,13 +1,14 @@
 <%= form_with model: project do |form| %>
-    <div>
+    <div class="form-group">
         <%= form.label :titulo %>
+        
         <%= form.text_field :titulo %>    
         
         <% project.errors.full_messages_for(:titulo).each do |message| %>
             <div><%= message %></div>
         <% end %>        
     </div>
-    <div>
+    <div class="form-group">
         <%= form.label :descricao %> 
         <%= form.text_area :descricao %>      
 
@@ -15,7 +16,7 @@
             <div><%= message %></div>
         <% end %>        
     </div>        
-    <div>
+    <div class="form-group">
         <%= form.label :duracao %>
         <%= form.number_field :duracao %>        
 
