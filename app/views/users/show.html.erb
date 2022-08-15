@@ -1,2 +1,12 @@
-<%= @user.name %>, <%= @user.email %>
+<h1>Olá, <%= @user.name %>!</h1>
 
+<h1>Projetos</h1>
+
+<%= link_to 'Novo Projeto', new_project_path %>
+<ul>
+<% @user.projects.each do |project| %>    
+        <li>
+            <%= link_to project.titulo, project %>
+        </li>     
+    <% end %>
+</ul>

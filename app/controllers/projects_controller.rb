@@ -3,8 +3,13 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy]
 
   def index
-    @projects = Project.all
+    if current_user
+      redirect_to user_path(current_user.id)
+    else
+      @projects = Project.all
+    end
   end
+  
   def show    
   end  
 
@@ -14,7 +19,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-
+    @project.user_id = current_user.id if current_user
     if @project.save
       redirect_to @project
     else
@@ -35,7 +40,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy
-    redirect_to root_path, status: :see_other
+    redirect_to user_path(current_user.id), status: :see_other
   end 
 
   private

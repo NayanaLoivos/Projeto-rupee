@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'sessions/new'
-  root 'projects#index' #raiz da rota
+  root 'projects#index' #raiz da rota ; uma home que diz faça seu cadastro e crigerencie um projeto
 
   resources :projects
 
