@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ProjetoRupee</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>ProjetoRupee</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
 
-  <body>
-  <div class="container">
+<body>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Home", root_path %></li>
+          <% if logged_in? %>
+          <li><%= link_to "Log out", logout_path,
+            data: { "turbo-method": :delete } %>
+          </li>
+          <% else %>
+          <li><%= link_to "Log in", login_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+      </div>
+    </header>
+    <div class="container">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
-    <%= yield %>
+      <%= yield %>
     </div>
   </body>
-</html>
+  </html>
