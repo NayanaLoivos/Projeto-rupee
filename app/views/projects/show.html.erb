@@ -1,11 +1,17 @@
-<div class="container">  
-    <div class="col-md-6 px-0">
-        <h1 class="display-4 fst-italic"><%= @project.titulo %></h1>
-        <p class="lead my-3"><%= @project.descricao %></p>
-        <p class="lead my-3"><%= @project.duracao %></p>
-        <p class="lead mb-0"><%= link_to 'Voltar', user_path(current_user.id)%></p>
-        <p class="lead mb-0"><%= link_to 'Edit', edit_project_path(@project) %></p>
-        <p class="lead mb-0"><%= link_to 'Destroy', project_path(@project), 
-            data: { "turbo_method": :delete, turbo_confirm: "Are you sure?" } %></p>   
-    </div>  
+<div class="container">
+  <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+    <div class="col-md-12 px-0 panel panel-primary">
+        <h1><%= @project.titulo %></h1>
+        <div class="panel-body">
+            <p class="lead my-3">Descrição:<br><%= @project.descricao %></br></p>
+            <p class="lead my-3">Duração: <%= @project.duracao %> dias</p>
+        </div> 
+    </div>
+    <div class="row col-12">
+        <%= link_to 'Voltar', user_path(current_user.id), class: 'col-xs-4 text-center' %>
+        <%= link_to 'Editar', edit_project_path(@project), class: 'col-xs-4 text-center' %>
+        <%= link_to 'Deletar', project_path(@project), 
+            data: { "turbo_method": :delete, turbo_confirm: "Are you sure?" }, class: 'col-xs-4 text-center' %>
+    </div>
+  </div>
 </div>
